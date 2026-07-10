@@ -1,11 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+    <title>iTask Manager</title>
 </head>
 <body>
     
+    <div class="container">
+        <h1>iTask Manager</h1>
+            <form id="form-tarefa" class="form-tarefa">
+            <input type="text" id="input-tarefa" placeholder="Título da tarefa" required>
+            <textarea id="input-descricao" placeholder="Descrição da tarefa" required></textarea>
+            <button type="submit">Adicionar tarefa</button>
+            </form>
+        <ul id="lista-tarefas" class="lista-tarefas"></ul>
+    </div>
+
 </body>
 </html>
