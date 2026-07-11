@@ -27,3 +27,38 @@ h1 {
     color: #2d2d2d;
 }
 
+.form-tarefa{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-tarefa input,
+.form-tarefa textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    resize: vertical;
+}
+
+.form-tarefa button {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.form-tarefa button:hover {
+    background-color: #45a049;
+}
