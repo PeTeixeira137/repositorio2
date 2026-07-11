@@ -1,4 +1,4 @@
-class tarefa {
+class Tarefa {
     titulo: string;
     descricao: string;
     concluida: boolean;
@@ -12,8 +12,8 @@ class tarefa {
     }
 
     renderizar(): HTMLElement {
-        const li = document.createElement('li');
-        li.className = 'tarefa-card';
+        const item = document.createElement('li');
+        item.className = 'tarefa-card';
 
         const checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
@@ -50,18 +50,18 @@ class tarefa {
 }
 
 class App {
-    tarefas: tarefa[];
+    tarefas: Tarefa[];
     listaTarefas: HTMLElement;
     formulario: HTMLFormElement;
     inputTitulo: HTMLInputElement;
-    inputDescricao: HTMLInputElement;
+    inputDescricao: HTMLTextAreaElement;
 
     constructor() {
         this.tarefas = [];
         this.listaTarefas = document.getElementById('lista-tarefas') as HTMLElement;
-        this.formulario = document.getElementById('formulario-tarefa') as HTMLFormElement;
-        this.inputTitulo = document.getElementById('titulo') as HTMLInputElement;
-        this.inputDescricao = document.getElementById('descricao') as HTMLTextAreaElement;
+        this.formulario = document.getElementById('form-tarefa') as HTMLFormElement;
+        this.inputTitulo = document.getElementById('input-titulo') as HTMLInputElement;
+        this.inputDescricao = document.getElementById('input-descricao') as HTMLTextAreaElement;
 
         this.formulario.addEventListener('submit', (event) => {
             this.adicionarTarefa(event);
@@ -72,17 +72,18 @@ class App {
         event.preventDefault();
         const titulo = this.inputTitulo.value.trim();
         const descricao = this.inputDescricao.value.trim();
-        if (titulo === ''){
+        if (titulo === '') {
             return;
         }
-        const novaTarefa = new tarefa(titulo, descricao);
+        const novaTarefa = new Tarefa(titulo, descricao);
         this.tarefas.push(novaTarefa);
-        this.renderizarTarefas();
-        this.formulario.reset();
+        const tarefa = novaTarefa.renderizar();
+        this.listaTarefas.appendChild(tarefa);
+        this.inputTitulo.value = '';
+        this.inputDescricao.value = '';
     }
-
-    const novaTarefa = new tarefa(titulo, descricao);
-    this.tarefas.push(novaTarefa);
-    const tarefa = novaTarefa.renderizar();
-    
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    new App();
+});
