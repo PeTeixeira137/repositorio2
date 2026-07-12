@@ -62,3 +62,11 @@ h1 {
 .form-tarefa button:hover {
     background-color: #45a049;
 }
+
+.lista-tarefas {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
